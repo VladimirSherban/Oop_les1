@@ -1,3 +1,4 @@
+import transport.Bus;
 import transport.Car;
 
 
@@ -5,38 +6,26 @@ public class Main {
     public static void main(String[] args) {
 
 
-        Car ladaGranta = new Car("Lada", "Granta", 1.7,
-                "Желтый", 2015, "Россия", "Седан", 5,
-                "1аам23_01", "автоматическая коробка передач",
-                new Car.Key(false, false));
+        Car ladaGranta = new Car(1.7, "Седан", 5, "1арн23_01", "автоматическая коробка передач",
+                false, true, "Lada", "Granta", 2015, "Россия", "Желтый", 140);
 
-        Car audiA8 = new Car("Audi", "A8", 3.0,
-                "черный", 2020, "Германия", "Хетчбек", 6,
-                "9арн12_93", "автоматическая коробка передач",
-                new Car.Key(true, true));
+        Car audiA8 = new Car(0.0, null, null, null, "", false, false,
+                "", null, -1000, "", null, -140);
 
-        Car bMWZ8 = new Car("BMW", "Z8", 3.0,
-                "черный", 2021, "Германия", "Седан", 6,
-                "0хам01_103", "вариативная коробка передач",
-                new Car.Key(true, false));
+        Bus hyundaiCounty = new Bus("Hyundai", "County", 2020, "Корея", "Белый", 150, 18);
 
-        Car kiaSportage = new Car("Kia", "Sportage 4", 2.4,
-                "красный", 2018, "Южная Корея", "Седан", 5,
-                "5ррн23_93", "механическая коробка передач",
-                new Car.Key(false, true));
+        Bus uaz = new Bus("УАЗ", "2206", 2003, "Россия", "Серый", 120, 8);
 
-        Car hyundaiAvante = new Car(null, "", -1.3,
-                "  ", -23, "   ", "", -6,
-                "     ", "", new Car.Key(false,
-                false));
+        Bus mercedesSprinter = new Bus(" Mercedes-Benz", "Sprinter Classic", 2015, "Германия", "Белый", 150, 12);
 
-
+        Bus check = new Bus("", "", -99, null, "Белый", -66, -7);
 
         System.out.println(ladaGranta);
         System.out.println(audiA8);
-        System.out.println(bMWZ8);
-        System.out.println(kiaSportage);
-        System.out.println(hyundaiAvante);
+        System.out.println(hyundaiCounty);
+        System.out.println(uaz);
+        System.out.println(mercedesSprinter);
+        System.out.println(check);
 
 
     }
