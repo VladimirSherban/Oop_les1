@@ -20,7 +20,6 @@ public class Main {
 
         Bus check = new Bus("", "", -99, null, "Белый", -66, -7);
 
-
         System.out.println(ladaGranta);
         System.out.println(audiA8);
         System.out.println(hyundaiCounty);
