@@ -1,18 +1,8 @@
 package transport;
 
-public class Bus extends Transport implements Competing {
-
-
-    public Bus(String brand, String model, Double engineVolume) {
+public class Truck extends Transport implements Competing {
+    public Truck(String brand, String model, Double engineVolume) {
         super(brand, model, engineVolume);
-    }
-
-    @Override
-    public String toString() {
-        return "Bus{" +
-                "brand=" + getBrand() + '\'' +
-                ", model=" + getModel() + '\'' +
-                '}';
     }
 
     @Override

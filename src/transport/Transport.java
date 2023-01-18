@@ -4,16 +4,11 @@ public class Transport {
 
     private final String brand;
     private final String model;
-    private final Integer year;
-    private final String country;
-    private String color;
-    private Integer maxSpeed;
+    private Double engineVolume;
 
+    public Transport(String brand, String model, Double engineVolume) {
 
-    public Transport(String brand, String model, Integer year, String country, String color, Integer maxSpeed) {
-
-        setColor(color);
-        setMaxSpeed(maxSpeed);
+        setEngineVolume(engineVolume);
 
         if (model == null || model.trim().isEmpty()) {
             this.model = "Не указана модель";
@@ -26,58 +21,34 @@ public class Transport {
         } else {
             this.brand = brand;
         }
-
-        if (country == null || country.trim().isEmpty()) {
-            this.country = "Не указана страна";
-        } else {
-            this.country = country;
-        }
-
-        if (year <= 0) {
-            this.year = 2000;
-        } else {
-            this.year = year;
-        }
     }
 
-    public void setColor(String color) {
-        if (color == null || color.trim().isEmpty()) {
-            this.color = "белый";
+    public void startMoving(){
+        System.out.println(getModel() + " " + getBrand() +  " начал движение");
+    }
+
+    public void endMoving(){
+        System.out.println(getModel() + " " + getBrand() +  " закончил движение");
+    }
+
+    public void setEngineVolume(Double engineVolume) {
+        if (engineVolume <= 0) {
+            this.engineVolume = 1.5;
         } else {
-            this.color = color;
+            this.engineVolume = engineVolume;
         }
     }
 
-    public void setMaxSpeed(Integer maxSpeed) {
-       if (maxSpeed == null || maxSpeed <= 0){
-           this.maxSpeed = 100;
-       }else {
-           this.maxSpeed = maxSpeed;
-       }
-    }
-
-    public String getBrand() {
+    public final String getBrand() {
         return brand;
     }
 
-    public String getModel() {
+    public final String getModel() {
         return model;
     }
 
-    public Integer getYear() {
-        return year;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public Integer getMaxSpeed() {
-        return maxSpeed;
+    public final Double getEngineVolume() {
+        return engineVolume;
     }
 
     @Override
@@ -85,10 +56,6 @@ public class Transport {
         return "Transport{" +
                 "brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
-                ", year=" + year +
-                ", country='" + country + '\'' +
-                ", color='" + color + '\'' +
-                ", maxSpeed=" + maxSpeed +
                 '}';
     }
 }
