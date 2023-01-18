@@ -1,32 +1,41 @@
+import Drivers.DriverB;
+import Drivers.DriverC;
+import Drivers.DriverD;
 import transport.Bus;
-import transport.Car;
-
+import transport.PassengerCar;
+import transport.Truck;
 
 public class Main {
     public static void main(String[] args) {
 
+        PassengerCar audiA8 = new PassengerCar("Audi", "A8", 3.0);
+        PassengerCar toyotaCorolla = new PassengerCar("Toyota", "Corolla", 1.6);
+        PassengerCar fordMustang = new PassengerCar("Ford", "Mustang", 5.0);
+        PassengerCar chevroletCamaro = new PassengerCar("Chevrolet", "Camaro", 6.2);
 
-        Car ladaGranta = new Car(1.7, "Седан", 5, "1арн23_01", "автоматическая коробка передач",
-                false, true, "Lada", "Granta", 2015, "Россия", "Желтый", 140);
+        Bus citroenJumpy = new Bus("Citroen", "Jumpy", 2.0);
+        Bus hyundaiH350 = new Bus("Hyundai", "H350", 2.5);
+        Bus hyundaiPorter = new Bus("Hyundai", "Porter", 2.1);
+        Bus hyundaiCounty = new Bus("Hyundai", "County", 2.1);
 
-        Car audiA8 = new Car(0.0, null, null, null, "", false, false,
-                "", null, -1000, "", null, -140);
+        Truck caterpillarCT630LS = new Truck("Caterpillar", "CT630LS", 16.1);
+        Truck westernStar = new Truck("western", "Star", 14.5);
+        Truck mackAnthem = new Truck("mack", "Anthem", 12.1);
+        Truck brockway360 = new Truck("brockway", "360", 11.5);
 
-        Bus hyundaiCounty = new Bus("Hyundai", "County", 2020, "Корея", "Белый", 150, 18);
+        DriverB<PassengerCar> mihailVladimirovich = new DriverB<>("Михаил Владимирович", true, "3 года");
+        DriverC<Truck> artemAlekseevich = new DriverC<>("Артем Алексеевич", true, "5 лет");
+        DriverD<Bus> vladimirDmitrievich = new DriverD<>("Владимир Дмитриевич", true, "8 лет");
 
-        Bus uaz = new Bus("УАЗ", "2206", 2003, "Россия", "Серый", 120, 8);
+        mihailVladimirovich.showInfo(toyotaCorolla);
+        artemAlekseevich.showInfo(westernStar);
+        vladimirDmitrievich.showInfo(citroenJumpy);
 
-        Bus mercedesSprinter = new Bus(" Mercedes-Benz", "Sprinter Classic", 2015, "Германия", "Белый", 150, 12);
-
-        Bus check = new Bus("", "", -99, null, "Белый", -66, -7);
-
-        System.out.println(ladaGranta);
-        System.out.println(audiA8);
-        System.out.println(hyundaiCounty);
-        System.out.println(uaz);
-        System.out.println(mercedesSprinter);
-        System.out.println(check);
-
+        audiA8.bestLapTime(234);
+        citroenJumpy.maxSpeed(189);
+        westernStar.pitStop();
+        brockway360.startMoving();
+        brockway360.endMoving();
 
     }
 }
