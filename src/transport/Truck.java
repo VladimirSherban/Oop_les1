@@ -7,16 +7,24 @@ public class Truck extends Transport implements Competing {
 
     @Override
     public void pitStop() {
-        System.out.println("пит-стоп автомобиля  " + getBrand() + " " + getModel());
+        System.out.println("пит-стоп грузовика  " + getBrand() + " " + getModel());
     }
 
     @Override
-    public void bestLapTime(Integer time) {
-        System.out.println("Лучшее время круга машины " + getModel() + " " + getBrand() + " = " + time);
+    public void bestLapTime() {
+        System.out.println("Лучшее время круга грузовика " + getModel() + " " + getBrand() +  " = " + ((int)((Math.random()  * 30 + 20)) + " мин."));
     }
 
     @Override
-    public void maxSpeed(Integer speed) {
-        System.out.println("Максимальная скорость машины  " + getModel() + " " + getBrand() + " = " + speed);
+    public void maxSpeed() {
+        System.out.println("Максимальная скорость грузовика  " + getModel() + " " + getBrand() + " = " + ((int)(Math.random() * 10 + 70)) + " км/ч");
+    }
+
+    public void startMoving(){
+        System.out.println("Грузовик - " + getModel() + " " + getBrand() +  " начал движение");
+    }
+
+    public void endMoving(){
+        System.out.println("Грузовик - " + getModel() + " " + getBrand() +  " закончил движение");
     }
 }

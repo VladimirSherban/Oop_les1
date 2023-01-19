@@ -23,19 +23,33 @@ public class Main {
         Truck mackAnthem = new Truck("mack", "Anthem", 12.1);
         Truck brockway360 = new Truck("brockway", "360", 11.5);
 
-        DriverB<PassengerCar> mihailVladimirovich = new DriverB<>("Михаил Владимирович", true, "3 года");
-        DriverC<Truck> artemAlekseevich = new DriverC<>("Артем Алексеевич", true, "5 лет");
-        DriverD<Bus> vladimirDmitrievich = new DriverD<>("Владимир Дмитриевич", true, "8 лет");
+        DriverB mihailVladimirovich = new DriverB("Михаил Владимирович", true, "3 года");
+        DriverC artemAlekseevich = new DriverC("Артем Алексеевич", true, "5 лет");
+        DriverD vladimirDmitrievich = new DriverD("Владимир Дмитриевич", true, "8 лет");
 
         mihailVladimirovich.showInfo(toyotaCorolla);
         artemAlekseevich.showInfo(westernStar);
         vladimirDmitrievich.showInfo(citroenJumpy);
 
-        audiA8.bestLapTime(234);
-        citroenJumpy.maxSpeed(189);
-        westernStar.pitStop();
-        brockway360.startMoving();
-        brockway360.endMoving();
+        citroenJumpy.startMoving();
+        audiA8.startMoving();
+        caterpillarCT630LS.startMoving();
+
+        citroenJumpy.bestLapTime();
+        citroenJumpy.maxSpeed();
+        audiA8.bestLapTime();
+        audiA8.maxSpeed();
+        caterpillarCT630LS.bestLapTime();
+        caterpillarCT630LS.maxSpeed();
+        citroenJumpy.pitStop();
+        audiA8.pitStop();
+        caterpillarCT630LS.pitStop();
+
+        citroenJumpy.endMoving();
+        audiA8.endMoving();
+        caterpillarCT630LS.endMoving();
+
+
 
     }
 }

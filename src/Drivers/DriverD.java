@@ -1,14 +1,13 @@
 package Drivers;
 
-import transport.Competing;
-import transport.Transport;
+import transport.Bus;
 
-public class DriverD<D extends Transport & Competing> extends Driver {
+public class DriverD extends Driver<Bus> {
     public DriverD(String name, boolean driverLicense, String experience) {
         super(name, driverLicense, experience);
     }
 
-    public void showInfo(D bus) {
+    public void showInfo(Bus bus) {
         System.out.println("Водитель " + getName() + " управляет автомобилем " + bus + " и будет участвовать в заезде");
     }
 
