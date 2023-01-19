@@ -15,18 +15,27 @@ public class Bus extends Transport implements Competing {
                 '}';
     }
 
+    public void startMoving(){
+        System.out.println("Автобус - " + getModel() + " " + getBrand() +  " начал движение");
+    }
+
+    public void endMoving() {
+        System.out.println("Автобус - " + getModel() + " " + getBrand() +  " закончил движение");
+    }
+
     @Override
     public void pitStop() {
-        System.out.println("пит-стоп автомобиля  " + getBrand() + " " + getModel());
+        System.out.println("пит-стоп автобуса  " + getBrand() + " " + getModel());
     }
 
     @Override
-    public void bestLapTime(Integer time) {
-        System.out.println("Лучшее время круга машины " + getModel() + " " + getBrand() + " = " + time);
+    public void bestLapTime() {
+
+        System.out.println("Лучшее время круга автобуса " + getModel() + " " + getBrand() + " = " + ((int)((Math.random()  * 20 + 10)) + " мин."));
     }
 
     @Override
-    public void maxSpeed(Integer speed) {
-        System.out.println("Максимальная скорость машины  " + getModel() + " " + getBrand() + " = " + speed);
+    public void maxSpeed() {
+        System.out.println("Максимальная скорость машины  " + getModel() + " " + getBrand() + " = " + ((int)(Math.random() * 100 + 35)) + " км/ч");
     }
 }

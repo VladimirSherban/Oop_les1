@@ -1,6 +1,8 @@
 package Drivers;
 
-public class Driver {
+import transport.Transport;
+
+public abstract class Driver<T extends Transport> {
 
     private final String name;
     private boolean driverLicense;
@@ -16,6 +18,10 @@ public class Driver {
 
         this.driverLicense = driverLicense;
         setExperience(experience);
+    }
+
+    public void showInfo(T transport){
+        System.out.println("Водитель " + getName() + " управляет автомобилем " + transport + " и будет участвовать в заезде");
     }
 
     public void startMoving() {
