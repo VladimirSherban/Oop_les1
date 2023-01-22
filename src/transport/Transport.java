@@ -1,5 +1,7 @@
 package transport;
 
+import Drivers.Driver;
+
 public abstract class Transport {
 
     private final String brand;
@@ -29,6 +31,9 @@ public abstract class Transport {
 
     public void endMoving() {
         System.out.println(getModel() + " " + getBrand() + " закончил движение");
+    }
+
+    public void getDiagnosed(Driver<?> driver) {
     }
 
     abstract void printType();

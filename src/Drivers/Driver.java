@@ -7,8 +7,19 @@ public abstract class Driver<T extends Transport> {
     private final String name;
     private boolean driverLicense;
     private String experience;
+    private LicenseType licenseType;
 
-    public Driver(String name, boolean driverLicense, String experience) {
+    public LicenseType getLicenseType() {
+        return licenseType;
+    }
+
+    public void setLicenseType(LicenseType licenseType) {
+        this.licenseType = licenseType;
+    }
+
+    public Driver(String name, boolean driverLicense, String experience, LicenseType licenseType) {
+
+        this.licenseType = licenseType;
 
         if (name == null || name.trim().isEmpty()) {
             this.name = "Не указано имя водителя";
@@ -20,7 +31,7 @@ public abstract class Driver<T extends Transport> {
         setExperience(experience);
     }
 
-    public void showInfo(T transport){
+    public void showInfo(T transport) {
         System.out.println("Водитель " + getName() + " управляет автомобилем " + transport + " и будет участвовать в заезде");
     }
 
@@ -66,6 +77,7 @@ public abstract class Driver<T extends Transport> {
                 "name='" + name + '\'' +
                 ", driverLicense=" + driverLicense +
                 ", experience='" + experience + '\'' +
+                ", категория прав= " + licenseType + '\'' +
                 '}';
     }
 }

@@ -1,5 +1,8 @@
 package transport;
 
+import Drivers.Driver;
+import Drivers.LicenseType;
+
 public class Truck extends Transport implements Competing {
 
     private final LoadCapacity loadCapacity;
@@ -23,6 +26,19 @@ public class Truck extends Transport implements Competing {
     @Override
     public void bestLapTime() {
         System.out.println("Лучшее время круга грузовика " + getModel() + " " + getBrand() + " = " + ((int) ((Math.random() * 30 + 20)) + " мин."));
+    }
+
+    @Override
+    public void getDiagnosed(Driver<?> driver) {
+        if (driver.getLicenseType() == null || driver.getLicenseType() != LicenseType.C) {
+            try {
+                throw new Exception();
+            } catch (Exception e) {
+                System.out.println("Необходимо указать тип прав");
+            }
+        } else {
+            System.out.println("Диагностика прошла успешно");
+        }
     }
 
     @Override
