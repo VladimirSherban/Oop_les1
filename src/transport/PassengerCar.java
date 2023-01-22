@@ -1,5 +1,8 @@
 package transport;
 
+import Drivers.Driver;
+import Drivers.LicenseType;
+
 public class PassengerCar extends Transport implements Competing {
 
     private CarBodyType bodyType;
@@ -20,6 +23,21 @@ public class PassengerCar extends Transport implements Competing {
     @Override
     public void pitStop() {
         System.out.println("пит-стоп легковой машины  " + getBrand() + " " + getModel());
+    }
+
+    @Override
+    public void getDiagnosed(Driver<?> driver) {
+
+
+        if (driver.getLicenseType() == null || driver.getLicenseType() != LicenseType.B) {
+            try {
+                throw new Exception();
+            } catch (Exception e) {
+                System.out.println("Необходимо указать тип прав");
+            }
+        } else {
+            System.out.println("Диагностика прошла успешно");
+        }
     }
 
     @Override

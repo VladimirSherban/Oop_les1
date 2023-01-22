@@ -1,6 +1,7 @@
 import Drivers.DriverB;
 import Drivers.DriverC;
 import Drivers.DriverD;
+import Drivers.LicenseType;
 import transport.*;
 
 public class Main {
@@ -21,9 +22,17 @@ public class Main {
         Truck mackAnthem = new Truck("mack", "Anthem", 12.1, LoadCapacity.N3, CarBodyType.VAN);
         Truck brockway360 = new Truck("brockway", "360", 11.5, LoadCapacity.N1, CarBodyType.VAN);
 
-        DriverB mihailVladimirovich = new DriverB("Михаил Владимирович", true, "3 года");
-        DriverC artemAlekseevich = new DriverC("Артем Алексеевич", true, "5 лет");
-        DriverD vladimirDmitrievich = new DriverD("Владимир Дмитриевич", true, "8 лет");
+        DriverB mihailVladimirovich = new DriverB("Михаил Владимирович", true, "3 года", LicenseType.B);
+        DriverC artemAlekseevich = new DriverC("Артем Алексеевич", true, "5 лет", LicenseType.C);
+        DriverD vladimirDmitrievich = new DriverD("Владимир Дмитриевич", true, "8 лет", LicenseType.D);
+
+
+        audiA8.getDiagnosed(mihailVladimirovich);
+        audiA8.getDiagnosed(artemAlekseevich);
+
+        System.out.println(mihailVladimirovich);
+
+        mihailVladimirovich.showInfo(audiA8);
 
         System.out.println(audiA8);
 
@@ -39,7 +48,7 @@ public class Main {
 
         audiA8.printType();
 
-//        mihailVladimirovich.showInfo(toyotaCorolla);
+
 //        artemAlekseevich.showInfo(westernStar);
 //        vladimirDmitrievich.showInfo(citroenJumpy);
 //
