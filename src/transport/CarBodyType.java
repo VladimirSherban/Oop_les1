@@ -1,6 +1,6 @@
 package transport;
 
-public enum PassengerCarBodyType {
+public enum CarBodyType {
 
     SEDAN("Седан"),
     HATCHBACK("Хэтчбек"),
@@ -14,12 +14,16 @@ public enum PassengerCarBodyType {
 
     private final String carType;
 
-    PassengerCarBodyType(String carType) {
+    CarBodyType(String carType) {
         this.carType = carType;
     }
 
     @Override
     public String toString() {
+        return carType;
+    }
+
+    public String getCarType() {
         return carType;
     }
 }

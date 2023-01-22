@@ -3,16 +3,16 @@ package transport;
 public class Bus extends Transport implements Competing {
 
     private final CapacityBus capacityBus;
-    private TransportType type;
+    private CarBodyType bodyType;
 
-    public Bus(String brand, String model, Double engineVolume, CapacityBus capacityBus, TransportType type) {
+    public Bus(String brand, String model, Double engineVolume, CapacityBus capacityBus, CarBodyType bodyType) {
         super(brand, model, engineVolume);
         this.capacityBus = capacityBus;
-        this.type = type;
+        this.bodyType = bodyType;
     }
 
-    public void setType(TransportType type) {
-        this.type = type;
+    public void setType(CarBodyType bodyType) {
+        this.bodyType = bodyType;
     }
 
     public void startMoving() {
@@ -25,10 +25,10 @@ public class Bus extends Transport implements Competing {
 
     @Override
     public void printType() {
-        if (type == null) {
+        if (bodyType == null) {
             System.out.println("Данных по транспортному средству недостаточно");
         } else {
-            System.out.println(type.getName());
+            System.out.println(bodyType.getCarType());
         }
     }
 
@@ -61,7 +61,7 @@ public class Bus extends Transport implements Competing {
                 '}';
     }
 
-    public TransportType getType() {
-        return type;
+    public CarBodyType getBodyType() {
+        return bodyType;
     }
 }

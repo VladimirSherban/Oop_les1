@@ -3,16 +3,16 @@ package transport;
 public class Truck extends Transport implements Competing {
 
     private final LoadCapacity loadCapacity;
-    private TransportType type;
+    private CarBodyType bodyType;
 
-    public Truck(String brand, String model, Double engineVolume, LoadCapacity loadCapacity, TransportType type) {
+    public Truck(String brand, String model, Double engineVolume, LoadCapacity loadCapacity, CarBodyType bodyType) {
         super(brand, model, engineVolume);
         this.loadCapacity = loadCapacity;
-        this.type = type;
+        this.bodyType = bodyType;
     }
 
-    public void setType(TransportType type) {
-        this.type = type;
+    public void setBodyType(CarBodyType bodyType) {
+        this.bodyType = bodyType;
     }
 
     @Override
@@ -51,14 +51,14 @@ public class Truck extends Transport implements Competing {
 
     @Override
     public void printType() {
-        if (type == null) {
+        if (bodyType == null) {
             System.out.println("Данных по транспортному средству недостаточно");
         } else {
-            System.out.println(type.getName());
+            System.out.println(bodyType.getCarType());
         }
     }
 
-    public TransportType getType() {
-        return type;
+    public CarBodyType getBodyType() {
+        return bodyType;
     }
 }
