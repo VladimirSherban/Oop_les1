@@ -23,13 +23,15 @@ public abstract class Transport {
         }
     }
 
-    public void startMoving(){
-        System.out.println(getModel() + " " + getBrand() +  " начал движение");
+    public void startMoving() {
+        System.out.println(getModel() + " " + getBrand() + " начал движение");
     }
 
-    public void endMoving(){
-        System.out.println(getModel() + " " + getBrand() +  " закончил движение");
+    public void endMoving() {
+        System.out.println(getModel() + " " + getBrand() + " закончил движение");
     }
+
+    abstract void printType();
 
     public void setEngineVolume(Double engineVolume) {
         if (engineVolume <= 0) {

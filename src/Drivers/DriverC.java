@@ -7,8 +7,6 @@ public class DriverC extends Driver<Truck> {
         super(name, driverLicense, experience);
     }
 
-
-
     @Override
 
     public String toString() {
