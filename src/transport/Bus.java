@@ -1,5 +1,8 @@
 package transport;
 
+import Drivers.Driver;
+import transport.exception.CheckLicenseException;
+
 public class Bus extends Transport implements Competing {
 
     private final CapacityBus capacityBus;
@@ -21,6 +24,11 @@ public class Bus extends Transport implements Competing {
 
     public void endMoving() {
         System.out.println("Автобус - " + getModel() + " " + getBrand() + " закончил движение");
+    }
+
+    @Override
+    public void getDiagnosed(Driver<?> driver) throws CheckLicenseException {
+        throw new CheckLicenseException("Автобус не может пройти диагностику");
     }
 
     @Override

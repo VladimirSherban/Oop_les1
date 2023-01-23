@@ -2,6 +2,7 @@ package transport;
 
 import Drivers.Driver;
 import Drivers.LicenseType;
+import transport.exception.CheckLicenseException;
 
 public class PassengerCar extends Transport implements Competing {
 
@@ -26,18 +27,13 @@ public class PassengerCar extends Transport implements Competing {
     }
 
     @Override
-    public void getDiagnosed(Driver<?> driver) {
-
+    public void getDiagnosed(Driver<?> driver) throws CheckLicenseException {
 
         if (driver.getLicenseType() == null || driver.getLicenseType() != LicenseType.B) {
-            try {
-                throw new Exception();
-            } catch (Exception e) {
-                System.out.println("Необходимо указать тип прав");
-            }
-        } else {
-            System.out.println("Диагностика прошла успешно");
+            String message = driver.getLicenseType() == null ? "Необходимо указать тип прав!" : "Неподходящая категория прав у водителя!";
+            throw new CheckLicenseException(message);
         }
+        System.out.println("Диагностика прошла успешно");
     }
 
     @Override
