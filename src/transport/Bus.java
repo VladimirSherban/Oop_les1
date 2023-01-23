@@ -8,8 +8,10 @@ public class Bus extends Transport implements Competing {
     private final CapacityBus capacityBus;
     private CarBodyType bodyType;
 
-    public Bus(String brand, String model, Double engineVolume, CapacityBus capacityBus, CarBodyType bodyType) {
-        super(brand, model, engineVolume);
+
+    public Bus(String brand, String model, Double engineVolume, CapacityBus capacityBus, CarBodyType bodyType,
+               Driver<Bus> driver) {
+        super(brand, model, engineVolume, driver);
         this.capacityBus = capacityBus;
         this.bodyType = bodyType;
     }

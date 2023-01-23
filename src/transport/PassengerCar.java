@@ -8,8 +8,8 @@ public class PassengerCar extends Transport implements Competing {
 
     private CarBodyType bodyType;
 
-    public PassengerCar(String brand, String model, Double engineVolume, CarBodyType bodyType) {
-        super(brand, model, engineVolume);
+    public PassengerCar(String brand, String model, Double engineVolume, CarBodyType bodyType, Driver<PassengerCar> driver) {
+        super(brand, model, engineVolume, driver);
         this.bodyType = bodyType;
     }
 

@@ -9,8 +9,8 @@ public class Truck extends Transport implements Competing {
     private final LoadCapacity loadCapacity;
     private CarBodyType bodyType;
 
-    public Truck(String brand, String model, Double engineVolume, LoadCapacity loadCapacity, CarBodyType bodyType) {
-        super(brand, model, engineVolume);
+    public Truck(String brand, String model, Double engineVolume, LoadCapacity loadCapacity, CarBodyType bodyType, Driver<Truck> driver) {
+        super(brand, model, engineVolume, driver);
         this.loadCapacity = loadCapacity;
         this.bodyType = bodyType;
     }

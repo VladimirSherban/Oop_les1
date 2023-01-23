@@ -1,17 +1,25 @@
 package transport;
 
 import Drivers.Driver;
+import Mechanics.Mechanic;
 import transport.exception.CheckLicenseException;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Transport {
 
     private final String brand;
     private final String model;
     private Double engineVolume;
+    private List<Mechanic<?>> mechanicList;
+    private Driver<?> driver;
 
-    public Transport(String brand, String model, Double engineVolume) {
+    public Transport(String brand, String model, Double engineVolume, Driver<?> driver) {
+        this.driver = driver;
 
         setEngineVolume(engineVolume);
+        this.mechanicList = new ArrayList<>();
 
         if (model == null || model.trim().isEmpty()) {
             this.model = "Не указана модель";
@@ -36,6 +44,29 @@ public abstract class Transport {
 
     public abstract void getDiagnosed(Driver<?> driver) throws CheckLicenseException;
 
+    public void addMechanic(Mechanic<?> mechanic) {
+        mechanicList.add(mechanic);
+    }
+
+    public void showMechanic() {
+        System.out.print("Механики машины " + model + " " + brand + " - ");
+        for (Mechanic<?> mechanic : mechanicList) {
+            System.out.print(mechanic.getName() + "; ");
+        }
+        System.out.println();
+    }
+
+    public void showDriver() {
+        System.out.println("Водитель машины " + model + " " + brand + " - " + driver.getName());
+    }
+
+    public List<Mechanic<?>> getMechanicList() {
+        return mechanicList;
+    }
+
+    public void setMechanicList(List<Mechanic<?>> mechanicList) {
+        this.mechanicList = mechanicList;
+    }
 
     abstract void printType();
 
@@ -65,5 +96,13 @@ public abstract class Transport {
                 "brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
                 '}';
+    }
+
+    public Driver<?> getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Driver<Transport> driver) {
+        this.driver = driver;
     }
 }
