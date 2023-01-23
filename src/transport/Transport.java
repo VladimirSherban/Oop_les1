@@ -1,6 +1,7 @@
 package transport;
 
 import Drivers.Driver;
+import transport.exception.CheckLicenseException;
 
 public abstract class Transport {
 
@@ -33,8 +34,8 @@ public abstract class Transport {
         System.out.println(getModel() + " " + getBrand() + " закончил движение");
     }
 
-    public void getDiagnosed(Driver<?> driver) {
-    }
+    public abstract void getDiagnosed(Driver<?> driver) throws CheckLicenseException;
+
 
     abstract void printType();
 

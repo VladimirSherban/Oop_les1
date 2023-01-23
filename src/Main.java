@@ -3,6 +3,7 @@ import Drivers.DriverC;
 import Drivers.DriverD;
 import Drivers.LicenseType;
 import transport.*;
+import transport.exception.CheckLicenseException;
 
 public class Main {
     public static void main(String[] args) {
@@ -27,26 +28,41 @@ public class Main {
         DriverD vladimirDmitrievich = new DriverD("Владимир Дмитриевич", true, "8 лет", LicenseType.D);
 
 
-        audiA8.getDiagnosed(mihailVladimirovich);
-        audiA8.getDiagnosed(artemAlekseevich);
+        try {
+            hyundaiCounty.getDiagnosed(vladimirDmitrievich);
+        } catch (CheckLicenseException e) {
+            System.out.println(e.getMessage());
+        }
 
-        System.out.println(mihailVladimirovich);
+        try {
+            westernStar.getDiagnosed(mihailVladimirovich);
+        } catch (CheckLicenseException e) {
+            System.out.println(e.getMessage());
+        }
 
-        mihailVladimirovich.showInfo(audiA8);
+        try {
+            audiA8.getDiagnosed(mihailVladimirovich);
+        } catch (CheckLicenseException e) {
+            System.out.println(e.getMessage());
+        }
 
-        System.out.println(audiA8);
-
-        System.out.println(caterpillarCT630LS);
-        System.out.println(westernStar);
-        System.out.println(mackAnthem);
-        System.out.println(brockway360);
-
-        System.out.println(citroenJumpy);
-        System.out.println(hyundaiH350);
-        System.out.println(hyundaiPorter);
-        System.out.println(hyundaiCounty);
-
-        audiA8.printType();
+//        System.out.println(mihailVladimirovich);
+//
+//        mihailVladimirovich.showInfo(audiA8);
+//
+//        System.out.println(audiA8);
+//
+//        System.out.println(caterpillarCT630LS);
+//        System.out.println(westernStar);
+//        System.out.println(mackAnthem);
+//        System.out.println(brockway360);
+//
+//        System.out.println(citroenJumpy);
+//        System.out.println(hyundaiH350);
+//        System.out.println(hyundaiPorter);
+//        System.out.println(hyundaiCounty);
+//
+//        audiA8.printType();
 
 
 //        artemAlekseevich.showInfo(westernStar);
