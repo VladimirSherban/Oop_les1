@@ -6,7 +6,9 @@ import Mechanics.Mechanic;
 import transport.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
@@ -44,10 +46,37 @@ public class Main {
         busList.add(new Bus("Citroen", "Jumpy", 2.0, CapacityBus.BIG, CarBodyType.MINIVAN, vladimirDmitrievich));
         truckList.add(new Truck("Caterpillar", "CT630LS", 16.1, LoadCapacity.N1, CarBodyType.VAN, artemAlekseevich));
 
-        busList.get(0).addMechanic(busMechanic);
-        truckList.get(0).addMechanic(mechanicTruck);
+        Map<PassengerCar, List<Mechanic<?>>> passengerCarMechanicMap = new HashMap<>();
+        Map<Bus, List<Mechanic<?>>> busMechanicMap = new HashMap<>();
+        Map<Truck, List<Mechanic<?>>> truckMechanicMap = new HashMap<>();
+
         passengerCars.get(0).addMechanic(passengerCarMechanic);
         passengerCars.get(0).addMechanic(transportMechanic);
+        busList.get(0).addMechanic(busMechanic);
+        truckList.get(0).addMechanic(mechanicTruck);
+
+        passengerCarMechanicMap.put(passengerCars.get(0), passengerCars.get(0).getMechanicList());
+        busMechanicMap.put(busList.get(0), busList.get(0).getMechanicList());
+        truckMechanicMap.put(truckList.get(0), truckList.get(0).getMechanicList());
+
+        System.out.println("////////////////////////////////");
+
+        for (Bus bus : busMechanicMap.keySet()) {
+            bus.showMechanic();
+        }
+
+        for (Truck truck : truckMechanicMap.keySet()) {
+            truck.showMechanic();
+        }
+
+        for (PassengerCar passengerCar : passengerCarMechanicMap.keySet()) {
+            passengerCar.showMechanic();
+        }
+
+        System.out.println("////////////////////////////////");
+
+
+        mihailVladimirovich.showInfo(passengerCars.get(0));
 
         passengerCars.get(0).showDriver();
         passengerCars.get(0).showMechanic();
