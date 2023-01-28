@@ -4,6 +4,8 @@ import Drivers.Driver;
 import Drivers.LicenseType;
 import transport.exception.CheckLicenseException;
 
+import java.util.Objects;
+
 public class PassengerCar extends Transport implements Competing {
 
     private CarBodyType bodyType;
@@ -71,5 +73,19 @@ public class PassengerCar extends Transport implements Competing {
                 ", model='" + getModel() + '\'' +
                 ", body type='" + bodyType + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        PassengerCar that = (PassengerCar) o;
+        return bodyType == that.bodyType;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), bodyType);
     }
 }
