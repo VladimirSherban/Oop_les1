@@ -28,6 +28,7 @@ public class Main {
         DriverD vladimirDmitrievich = new DriverD("Владимир Дмитриевич", true, "8 лет", LicenseType.D);
 
         PassengerCar audiA8 = new PassengerCar("Audi", "A8", 3.0, CarBodyType.UNIVERSAL, mihailVladimirovich);
+        PassengerCar audiA81 = new PassengerCar("Audi", "A8", 3.0, CarBodyType.UNIVERSAL, mihailVladimirovich);
 //        PassengerCar toyotaCorolla = new PassengerCar("Toyota", "Corolla", 1.6, CarBodyType.UNIVERSAL, mihailVladimirovich);
 //        PassengerCar fordMustang = new PassengerCar("Ford", "Mustang", 5.0, CarBodyType.UNIVERSAL, mihailVladimirovich);
 //        PassengerCar chevroletCamaro = new PassengerCar("Chevrolet", "Camaro", 6.2, CarBodyType.CROSSOVER, mihailVladimirovich);
@@ -42,8 +43,10 @@ public class Main {
 //        Truck mackAnthem = new Truck("mack", "Anthem", 12.1, LoadCapacity.N3, CarBodyType.VAN, artemAlekseevich);
 //        Truck brockway360 = new Truck("brockway", "360", 11.5, LoadCapacity.N1, CarBodyType.VAN, artemAlekseevich);
 
-        passengerCars.add(new PassengerCar("Audi", "A8", 3.0, CarBodyType.UNIVERSAL, mihailVladimirovich));
-        busList.add(new Bus("Citroen", "Jumpy", 2.0, CapacityBus.BIG, CarBodyType.MINIVAN, vladimirDmitrievich));
+
+        passengerCars.add(audiA8);
+        passengerCars.add(audiA81);
+        busList.add(new Bus("Citroen", "Jumpy", 2.0, CapacityBus.BIG, null, vladimirDmitrievich));
         truckList.add(new Truck("Caterpillar", "CT630LS", 16.1, LoadCapacity.N1, CarBodyType.VAN, artemAlekseevich));
 
         Map<PassengerCar, List<Mechanic<?>>> passengerCarMechanicMap = new HashMap<>();
@@ -52,10 +55,14 @@ public class Main {
 
         passengerCars.get(0).addMechanic(passengerCarMechanic);
         passengerCars.get(0).addMechanic(transportMechanic);
+
+        passengerCars.get(1).addMechanic(passengerCarMechanic);
+        passengerCars.get(1).addMechanic(transportMechanic);
         busList.get(0).addMechanic(busMechanic);
         truckList.get(0).addMechanic(mechanicTruck);
 
         passengerCarMechanicMap.put(passengerCars.get(0), passengerCars.get(0).getMechanicList());
+        passengerCarMechanicMap.put(passengerCars.get(1), passengerCars.get(1).getMechanicList());
         busMechanicMap.put(busList.get(0), busList.get(0).getMechanicList());
         truckMechanicMap.put(truckList.get(0), truckList.get(0).getMechanicList());
 
@@ -73,6 +80,7 @@ public class Main {
             passengerCar.showMechanic();
         }
 
+        System.out.println(passengerCarMechanicMap.size());
         System.out.println("////////////////////////////////");
 
 

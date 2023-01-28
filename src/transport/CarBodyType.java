@@ -18,6 +18,7 @@ public enum CarBodyType {
         this.carType = carType;
     }
 
+
     @Override
     public String toString() {
         return carType;

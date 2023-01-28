@@ -3,6 +3,8 @@ package transport;
 import Drivers.Driver;
 import transport.exception.CheckLicenseException;
 
+import java.util.Objects;
+
 public class Bus extends Transport implements Competing {
 
     private final CapacityBus capacityBus;
@@ -13,7 +15,11 @@ public class Bus extends Transport implements Competing {
                Driver<Bus> driver) {
         super(brand, model, engineVolume, driver);
         this.capacityBus = capacityBus;
-        this.bodyType = bodyType;
+        setBodyType(bodyType);
+    }
+
+    public void setBodyType(CarBodyType bodyType) {
+        this.bodyType = Objects.requireNonNullElse(bodyType, CarBodyType.UNIVERSAL);
     }
 
     public void setType(CarBodyType bodyType) {
@@ -73,5 +79,19 @@ public class Bus extends Transport implements Competing {
 
     public CarBodyType getBodyType() {
         return bodyType;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Bus bus = (Bus) o;
+        return capacityBus == bus.capacityBus && bodyType == bus.bodyType;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), capacityBus, bodyType);
     }
 }

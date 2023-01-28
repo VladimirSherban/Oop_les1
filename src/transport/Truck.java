@@ -4,6 +4,8 @@ import Drivers.Driver;
 import Drivers.LicenseType;
 import transport.exception.CheckLicenseException;
 
+import java.util.Objects;
+
 public class Truck extends Transport implements Competing {
 
     private final LoadCapacity loadCapacity;
@@ -12,11 +14,11 @@ public class Truck extends Transport implements Competing {
     public Truck(String brand, String model, Double engineVolume, LoadCapacity loadCapacity, CarBodyType bodyType, Driver<Truck> driver) {
         super(brand, model, engineVolume, driver);
         this.loadCapacity = loadCapacity;
-        this.bodyType = bodyType;
+        setBodyType(bodyType);
     }
 
     public void setBodyType(CarBodyType bodyType) {
-        this.bodyType = bodyType;
+        this.bodyType = Objects.requireNonNullElse(bodyType, CarBodyType.UNIVERSAL);
     }
 
     @Override
@@ -74,5 +76,20 @@ public class Truck extends Transport implements Competing {
 
     public CarBodyType getBodyType() {
         return bodyType;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Truck truck = (Truck) o;
+        return loadCapacity == truck.loadCapacity && bodyType == truck.bodyType;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), loadCapacity, bodyType);
     }
 }
